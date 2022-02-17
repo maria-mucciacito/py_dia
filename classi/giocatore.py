@@ -1,4 +1,3 @@
-
 from classi.labirinto import Labirinto
 
 class Giocatore:
@@ -25,7 +24,7 @@ class Giocatore:
             if (self.set_istruzione(comando) == True):
                 esci = True
 
-    def set_istruzione(sefl,istruzione):
+    def set_istruzione(self,istruzione):
         if(istruzione == "fine"):
             return self.fine()
         elif(istruzione == "aiuto"):
@@ -37,9 +36,9 @@ class Giocatore:
         else:
             print('Inserisci un comando valido!')
             return False
-    
+
     def guarda(self):
-        print(f"Ti trovi nella stanza: {self.partita.stanzaCorrente}, hai ancora a disposizione {self.pv} punti vita! ")
+        print(f"Ti trovi {self.partita.stanzaCorrente}, hai ancora a disposizione {self.pv} punti vita! ")
         if (self.partita.stanzaCorrente == self.partita.stanzaVincente):
             print('Evviva! Hai trovato il manuale!')
             return True
@@ -52,11 +51,8 @@ class Giocatore:
 
     def aiuto(self):
         print('Hai a disposizione i seguenti comandi: ')
-        print(*self.ELENCO_COMANDI, sep = ", ")
+        print(*self.ELENCO_COMANDI, sep=", ")
         return False
-
-    def esci(self):
-        pass
 
     def vai(self,direzione):
         if direzione == "nord" and self.partita.stanzaCorrente.nord != None:
@@ -75,7 +71,4 @@ class Giocatore:
         if self.pv == 0:
             print('Hai finito i punti vita. Game Over!')
         print(f"Hai cambiato stanza, ti rimangono {self.pv} punti vita!")
-
-player1 = Giocatore()
-player1.gioca()
 

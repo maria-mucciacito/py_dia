@@ -11,7 +11,7 @@ class Stanza:
         self.stanzaVincente = None
 
     def __repr__(self):
-        return f'Il giocatore si trova nella stanza:  {self.nome}'
+        return f"nella stanza: {self.nome}"
 
     def get_nord(self):
         return self.nord

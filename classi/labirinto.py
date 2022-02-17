@@ -1,5 +1,4 @@
-from classi.Stanze import Stanza
-
+from classi.stanze import Stanza
 class Labirinto:
 
     def __init__(self):
@@ -7,7 +6,7 @@ class Labirinto:
         self.stanzaCorrente = None
         self.crea_labirinto()
 
-    def crea_labirinto():
+    def crea_labirinto(self):
         parcheggio = Stanza('Parcheggio')
         atrio = Stanza('Atrio')
         area_relax = Stanza('Area Relax')
