@@ -1,46 +1,52 @@
 from classi.Stanze import Stanza
 
 class Labirinto:
-    lst_labirinto = []
 
     def __init__(self):
-        self.lst_labirinto.append(self.parcheggio)
-        self.lst_labirinto.append(self.atrio)
-        self.lst_labirinto.append(self.area_relax)
-        self.lst_labirinto.append(self.aula_azzurra)
-        self.lst_labirinto.append(self.aula_gialla)
-        self.lst_labirinto.append(self.segreteria)
-        self.lst_labirinto.append(self.presidenza)
+        self.stanzaVincente = None
+        self.stanzaCorrente = None
+        self.crea_labirinto()
 
+    def crea_labirinto():
+        parcheggio = Stanza('Parcheggio')
+        atrio = Stanza('Atrio')
+        area_relax = Stanza('Area Relax')
+        aula_azzurra = Stanza('Aula Azzurra')
+        aula_gialla = Stanza('Aula Gialla')
+        segreteria = Stanza('Segreteria')
+        presidenza = Stanza('Presidenza')
 
-    def crea_labirinto(self):
-        self.parcheggio = Stanza('Parcheggio',None,None,'Atrio',None)
-        self.atrio = Stanza('Atrio')
-        self.area_relax = Stanza('Area Relax')
-        self.aula_azzurra = Stanza('Aula Azzurra')
-        self.aula_gialla = Stanza('Aula Gialla')
-        self.segreteria = Stanza('Segreteria')
-        self.presidenza = Stanza('Presidenza')
-        self.parcheggio.est('atrio')
-        self.atrio.nord('segreteria')
-        self.atrio.sud('area_relax')
-        self.atrio.ovest('parcheggio')
-        self.atrio.est('aula_gialla')
-        self.area_relax.nord('atrio')
-        self.area_relax.est('aula_gialla')
-        self.area_relax.sud('aula_azzurra')
-        self.area_relax.ovest('presidenza')
-        self.segreteria.sud('atrio')
-        self.segreteria.nord('presidenza')
-        self.segreteria.est('aula_gialla')
-        self.segreteria.ovest('aula_azzurra')
-        self.aula_gialla.ovest('segreteria')
-        self.aula_gialla.nord('presidenza')
-        self.aula_gialla.sud('atrio')
-        self.presidenza.sud('segreteria')
-        self.presidenza.ovest('aula_azzurra')
-        self.presidenza.est('aula_gialla')
-        self.presidenza.nord('area_relax')
-        self.aula_azzurra.est('segreteria')
-        self.aula_azzurra.ovest('area_relax')
-        self.aula_azzurra.nord('presidenza')
+        parcheggio.set_est('atrio')
+        
+        atrio.set_nord('segreteria')
+        atrio.set_sud('area_relax')
+        atrio.set_ovest('parcheggio')
+        atrio.set_est('aula_gialla')
+        
+        area_relax.set_nord('atrio')
+        area_relax.set_est('aula_gialla')
+        area_relax.set_sud('aula_azzurra')
+        area_relax.set_ovest('presidenza')
+        
+        segreteria.set_sud('atrio')
+        segreteria.set_nord('presidenza')
+        segreteria.set_est('aula_gialla')
+        segreteria.set_ovest('aula_azzurra')
+        
+        aula_gialla.set_ovest('segreteria')
+        aula_gialla.set_nord('presidenza')
+        aula_gialla.set_sud('atrio')
+        
+        presidenza.set_sud('segreteria')
+        presidenza.set_ovest('aula_azzurra')
+        presidenza.set_est('aula_gialla')
+        presidenza.set_nord('area_relax')
+        
+        aula_azzurra.set_est('segreteria')
+        aula_azzurra.set_ovest('area_relax')
+        aula_azzurra.set_nord('presidenza')
+
+        self.stanzaCorrente = parcheggio
+        segreteria.stanzaVincente = True
+
+        print('Labirinto creato')

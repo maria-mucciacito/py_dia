@@ -1,49 +1,43 @@
 class Stanza:
 
-    def __init__(self,nome,nord,sud,est,ovest):
-        self.__nome = nome
-        self.__nord = nord
-        self.__sud = sud
-        self.__est = est
-        self.__ovest = ovest
+    NUMERO_MASSIMO_DERIZIONI = 4
+
+    def __init__(self,nome):
+        self.nome = nome
+        self.nord = None
+        self.sud = None
+        self.est = None
+        self.ovest = None
+        self.stanzaVincente = None
 
     def __repr__(self):
         return f'Il giocatore si trova nella stanza:  {self.nome}'
 
-    @property
-    def nord(self):
-        return self.__nord
-    @nord.setter
-    def nord(self,nord):
-        self.__nord = nord
+    def get_nord(self):
+        return self.nord
+    def set_nord(self,nord):
+        self.nord = nord
 
-    @property
-    def sud(self):
-        return self.__sud
-    @sud.setter
-    def sud(self,sud):
-        self.__nord = sud
+    def get_sud(self):
+        return self.sud
+    def set_sud(self,sud):
+        self.sud = sud
+    
+    def get_est(self):
+        return self.est
+    def set_est(self,est):
+        self.est = est
 
-    @property
-    def est(self):
-        return self.__est
-    @est.setter
-    def est(self,s):
-        self.__est = s
+    def get_ovest(self):
+        return self.ovest
+    def set_ovest(self,ovest):
+        self.ovest = ovest
 
-    @property
-    def ovest(self):
-        return self.__ovest
-    @ovest.setter
-    def ovest(self,ovest):
-        self.__ovest = ovest
+    def get_nome(self):
+        return self.nome
+    def set_nome(self,nome):
+        self.nome = nome
 
-    @property
-    def nome(self):
-        return self.__nome
-    @nome.setter
-    def nome(self,nome):
-        self.__nome = nome
 
 
 
